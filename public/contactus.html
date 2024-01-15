@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>contact us</title>
+<link rel="stylesheet" href="contactstyle.css">
+</head>
+<body>
+    <div class="contact-form">
+        <div class="container">
+            <div class="main">
+                <div class="content">
+                    <h2>Contact us</h2>
+                    <form onsubmit="Email.send(); reset(); return false;">
+                        <input type="text" name="name" class="name"placeholder="Enter Your Name">
+                      
+                        <input type="email" class="emailmsg" name="name" placeholder="Enter Your Email">
+                        <textarea name="message" class="message" placeholder="Your Message"></textarea>                   
+             <button type="submit" class="btn">Send <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+                <div class="form-img">
+                    <img src="./images/bg1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <script>
+        
+    Email.send({
+    Host : "smtp.gmail.com",
+    Username : "shivamkapoor862@gmail.com",
+    Password : "731EDDA54AE4BAADA87E48475EA511C0D81C",
+    To : 'shivamkapoor862@gmail.com',
+    From : document.querySelector('emailmsg').value,
+    Subject : "Contact Form",
+    Body : "Name :" + document.querySelector('name').value + "<br> Email :" + document.querySelector('emailmsg').value + "<br> Message :" + document.querySelector('message').value
+}).then(
+  message => alert("Message sent Successfully")
+);
+    </script>
+    
+</body>
+</html>
